@@ -1,17 +1,18 @@
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    alias(libs.plugins.agp.lib)
+    alias(libs.plugins.kotlin)
     id("maven-publish")
     id("signing")
 }
 
 android {
     namespace = "io.github.libxposed.helper.kt"
-    compileSdk = 33
+    compileSdk = 35
+    buildToolsVersion = "35.0.1"
 
     defaultConfig {
         minSdk = 21
-        targetSdk = 33
+        testOptions.targetSdk = 35
     }
 
     buildFeatures {
@@ -27,12 +28,12 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "21"
         freeCompilerArgs = listOf(
             "-Xno-param-assertions",
             "-Xno-call-assertions",
@@ -49,8 +50,8 @@ android {
 }
 
 dependencies {
-    compileOnly("androidx.annotation:annotation:1.5.0")
-    compileOnly("io.github.libxposed:api:100")
+    compileOnly(libs.annotation)
+    compileOnly(files("../helper/libs/api-100.aar"))
     implementation(project(":helper"))
 }
 

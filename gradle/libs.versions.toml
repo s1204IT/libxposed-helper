@@ -1,0 +1,15 @@
+[versions]
+annotation = "1.9.1"
+annotation-experimental = "1.4.1"
+kotlin = "2.1.20"
+agp = "8.9.2"
+
+[plugins]
+kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+agp-lib = { id = "com.android.library", version.ref = "agp" }
+
+[libraries]
+annotation = { module = "androidx.annotation:annotation", version.ref = "annotation" }
+annotation-experimental = { module = "androidx.annotation:annotation-experimental", version.ref = "annotation.experimental" }
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+
